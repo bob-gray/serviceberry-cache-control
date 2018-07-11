@@ -85,66 +85,66 @@ CacheControl
 ------------
 Abstract class
 
-	### constructor([options])
+### constructor([options])
 
-	  - **options**
+  - **options**
 
-	    Sets `this.options`. See [options](#options) above.
+    Sets `this.options`. See [options](#options) above.
 
-	### getETag(request, response)
+### getETag(request, response)
 
-	**You should extend this class and at least implement this method or `getLastModified()`.**
+**You should extend this class and at least implement this method or `getLastModified()`.**
 
-	Called by the `setETag` method for fetching an ETag to be set as a response headers
-	and used to validate the cache. This can be an async function or it can return a promise.
-	It should return an ETag string or eventually resolve to one.
+Called by the `setETag` method for fetching an ETag to be set as a response headers
+and used to validate the cache. This can be an async function or it can return a promise.
+It should return an ETag string or eventually resolve to one.
 
-	  - **request** *object*
+  - **request** *object*
 
-	    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
+    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
 
-	  - **response** *object*
+  - **response** *object*
 
-	    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
+    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
 
-	### getLastModified(request, response)
+### getLastModified(request, response)
 
-	**You should extend this class and at least implement this method or `getETag()`.**
+**You should extend this class and at least implement this method or `getETag()`.**
 
-	Called by the `validate` method for fetching the date the requested resource
-	was last modified to be used to validate the cache. This can be an async function
-	or it can return a promise. It should return an ETag string or eventually resolve to one.
+Called by the `validate` method for fetching the date the requested resource
+was last modified to be used to validate the cache. This can be an async function
+or it can return a promise. It should return an ETag string or eventually resolve to one.
 
-	  - **request** *object*
+  - **request** *object*
 
-	    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
+    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
 
-	  - **response** *object*
+  - **response** *object*
 
-	    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
+    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
 
-	### use(request, response)
+### use(request, response)
 
-	The handler method. This is the method called by Serviceberry. This is an `async` function.
-	If it determines the response status should be `304 Not Modified` the request will be
-	halted and the response sent with a `304` status.
+The handler method. This is the method called by Serviceberry. This is an `async` function.
+If it determines the response status should be `304 Not Modified` the request will be
+halted and the response sent with a `304` status.
 
-	  - **request** *object*
+  - **request** *object*
 
-	    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
+    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
 
-	  - **response** *object*
+  - **response** *object*
 
-	    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
+    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
 
-	### validate(request, response)
+### validate(request, response)
 
-	Called by the `use` method to validate the cache. This is an `async` function.
+Called by the `use` method to validate the cache. This is an `async` function.
 
-	  - **request** *object*
+  - **request** *object*
 
-	    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
+    Serviceberry [`request`](https://serviceberry.js.org/docs/request.html).
 
-	  - **response** *object*
+  - **response** *object*
 
-	    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
+    Serviceberry [`response`](https://serviceberry.js.org/docs/response.html).
