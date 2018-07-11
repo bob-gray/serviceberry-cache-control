@@ -62,6 +62,7 @@ class CacheControl {
 		}
 	}
 
+	// eslint-disable-next-line complexity, max-statements
 	getDirectives () {
 		var directives = [];
 
@@ -104,7 +105,7 @@ class CacheControl {
 	}
 
 	getCachedETags (request) {
-		return request.getHeader("If-None-Match").split(",").map(toRawETag)
+		return request.getHeader("If-None-Match").split(",").map(toRawETag);
 	}
 
 	getResponseRawETag (response) {
