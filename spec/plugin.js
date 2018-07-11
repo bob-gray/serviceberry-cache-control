@@ -1,6 +1,6 @@
 "use strict";
 
-const cacheControl = require("../plugin"),
+const CacheControl = require("../plugin"),
 	Request = require("serviceberry/src/Request"),
 	{HttpError} = require("serviceberry"),
 	httpMocks = require("node-mocks-http");
@@ -11,17 +11,13 @@ describe("serviceberry-cache-control", () => {
 		response;
 
 	beforeEach(() => {
-		handler = cacheControl();
+		handler = new CacheControl();
 		request = createRequest();
 		response = createResponse();
 	});
 
 	it("should create a handler instance with a use() method", () => {
 		expect(typeof handler.use).toBe("function");
-	});
-
-	it("should export cacheControl.CacheControl class", () => {
-		expect(handler instanceof cacheControl.CacheControl).toBe(true);
 	});
 });
 
