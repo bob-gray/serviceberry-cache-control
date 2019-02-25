@@ -1,8 +1,14 @@
 {
   "name": "serviceberry-cache-control",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Cache Control plugin for Serviceberry",
   "main": "plugin.js",
+  "files": [
+    "plugin.js"
+  ],
+  "directories": {
+    "test": "spec"
+  },
   "scripts": {
     "build": "npm run lint && npm run test-coverage",
     "lint": "eslint plugin.js",
