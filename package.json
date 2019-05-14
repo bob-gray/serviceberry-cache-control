@@ -1,6 +1,6 @@
 {
   "name": "serviceberry-cache-control",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A Cache Control plugin for Serviceberry",
   "main": "plugin.js",
   "files": [
@@ -38,11 +38,11 @@
     "vary": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.16.0",
     "jasmine": "^3.1.0",
     "jasmine-spec-reporter": "^4.2.1",
     "node-mocks-http": "^1.6.7",
-    "nyc": "^11.6.0",
+    "nyc": "^14.1.1",
     "serviceberry": "^0.3.0"
   }
 }

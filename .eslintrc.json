@@ -118,7 +118,7 @@
     "padded-blocks": ["error", "never"],
     "quote-props": ["error", "consistent"],
     "quotes": ["error", "double", {
-        "avoidEscape": true    
+        "avoidEscape": true
     }],
     "semi": "error",
     "semi-spacing": "error",
