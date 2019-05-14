@@ -46,12 +46,13 @@ class CacheControl {
 	}
 
 	async validate (request, response) {
-		var valid;
+		var valid,
+			lastModified = await this.getLastModified(request, response);
 
 		if (request.hasHeader("If-None-Match")) {
 			valid = this.eTagIsValid(request, response);
 		} else if (request.hasHeader("If-Modified-Since")) {
-			valid = Date.parse(request.getHeader("If-Modified-Since")) >= await this.getLastModified(request, response);
+			valid = Date.parse(request.getHeader("If-Modified-Since")) >= lastModified;
 		}
 
 		if (valid) {
@@ -59,6 +60,8 @@ class CacheControl {
 				status: "Not Modified",
 				body: null
 			});
+		} else if (lastModified < Infinity) {
+			response.setHeader("Last-Modified", lastModified.toUTCString());
 		}
 	}
 
@@ -96,7 +99,7 @@ class CacheControl {
 	}
 
 	eTagIsValid (request, response) {
-		return response.hasHeader("ETag") && this.getCachedETags(request).find(this.getRawETag(response));
+		return response.hasHeader("ETag") && this.getCachedETags(request).some(this.getRawETag(response));
 	}
 
 	getLastModified () {
