@@ -74,7 +74,7 @@ class CacheControl {
 		}
 
 		if (this.options.noCache) {
-			directives.push("no-Cache");
+			directives.push("no-cache");
 		}
 
 		if (this.options.mustRevalidate) {
