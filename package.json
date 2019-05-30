@@ -32,17 +32,17 @@
   },
   "homepage": "https://github.com/bob-gray/serviceberry-cache-control#readme",
   "peerDependencies": {
-    "serviceberry": "^0.3.0"
+    "serviceberry": "^0.7.1"
   },
   "dependencies": {
     "vary": "^1.1.2"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "jasmine": "^3.1.0",
+    "jasmine": "^3.4.0",
     "jasmine-spec-reporter": "^4.2.1",
-    "node-mocks-http": "^1.6.7",
+    "node-mocks-http": "^1.7.5",
     "nyc": "^14.1.1",
-    "serviceberry": "^0.3.0"
+    "serviceberry": "^0.7.1"
   }
 }
