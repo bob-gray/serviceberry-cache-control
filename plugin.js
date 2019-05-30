@@ -58,7 +58,7 @@ class CacheControl {
 		if (valid) {
 			response.send({
 				status: "Not Modified",
-				body: null
+				body: undefined
 			});
 		} else if (lastModified < Infinity) {
 			response.setHeader("Last-Modified", lastModified.toUTCString());
