@@ -1,6 +1,6 @@
 {
   "name": "serviceberry-cache-control",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A Cache Control plugin for Serviceberry",
   "main": "plugin.js",
   "files": [
