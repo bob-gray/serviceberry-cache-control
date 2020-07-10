@@ -30,7 +30,7 @@ class CacheControl {
 	}
 
 	setDirectives (response) {
-		var directives = this.getDirectives();
+		const directives = this.getDirectives();
 
 		if (directives) {
 			response.setHeader("Cache-Control", directives);
@@ -38,7 +38,7 @@ class CacheControl {
 	}
 
 	async setETag (request, response) {
-		var etag = await this.getETag(request, response);
+		const etag = await this.getETag(request, response);
 
 		if (typeof etag !== "undefined" && etag !== null) {
 			response.setHeader("ETag", quote(etag));
@@ -67,7 +67,7 @@ class CacheControl {
 
 	// eslint-disable-next-line complexity, max-statements
 	getDirectives () {
-		var directives = [];
+		const directives = [];
 
 		if (this.options.noStore) {
 			directives.push("no-store");
@@ -99,7 +99,13 @@ class CacheControl {
 	}
 
 	eTagIsValid (request, response) {
-		return response.hasHeader("ETag") && this.getCachedETags(request).some(this.getRawETag(response));
+		var responseETag;
+
+		if (response.hasHeader("ETag")) {
+			responseETag = this.getResponseRawETag(response);
+		}
+
+		return responseETag && this.getCachedETags(request).includes(responseETag);
 	}
 
 	getLastModified () {
